@@ -1,185 +1,191 @@
 <html>
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="HandheldFriendly" content="true"> 
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta property="og:type" content="website">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Employee Enrichment</title>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        <style>
-                              
-                body{
-                  background-image:url("img/bg.jpg");
-                  background-position: center;
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                  position: relative;
-                }
-            
-                .crossword {
-                  margin: 1em auto;
-                  position: relative;
-                  font-family: sans-serif;
-                }
-                .crossword-clues {
-                  font-size: 14px;
-                }
-                .crossword-buttons {
-                  clear: both;
-                  text-align: center;
-                  padding-top: 1em;
-                }
-                .crossword-buttons button {
-                  margin: 0 0.5em;
-                  min-width: 200px;
-                }
-                table.crossword-grid {
-                  width: 100%;
-                  max-width: 100%;
-                  border-spacing: 0;
-                  border-collapse: collapse;
-                }
-                .grid-row {
-                  clear: left;
-                }
-                .grid-square {
-                  position: relative;
-                  background-clip: padding-box;
-                }
-                .grid-square:after {
-                  content: '';
-                  display: block;
-                  margin-top: 100%;
-                }
-                .grid-square.active {
-                  border: 2px solid white;
-                }
-                .grid-square.current-word {
-                  background-color: #ffff99;
-                }
-                .grid-square.correct-across,
-                .grid-square.correct-down {
-                  background-color: #dff0d8;
-                }
-                .grid-square.correct-across.current-word,
-                .grid-square.correct-down.current-word {
-                  background-color: #dff082;
-                }
-                .grid-square .word-label {
-                  position: absolute;
-                  z-index: 1;
-                  top: 0;
-                  left: 0;
-                  line-height: 1;
-                  font-size: calc(10px + .25vw);
-                  color: rgba(255, 255, 255, 0.0);
-                  pointer-events: none;
-                }
-                .grid-square input {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  text-align: center;
-                  font-size: 1.2em;
-                  font-size: calc(10px + .5vw);
-                  font-weight: 600;
-                  border: 0;
-                  padding: 0;
-                  text-transform: uppercase;
-                  border-radius: 0;
-                  background: transparent;
-                }
-                .crossword-clues li {
-                  position: relative;
-                }
-                .crossword-clues li label {
-                  display: block;
-                  font-weight: normal;
-                  cursor: pointer;
-                }
-                .crossword-clues li.active {
-                  background: #ffff99;
-                }
-                .crossword-clues li.correct {
-                  background: transparent;
-                  color: green;
-                  text-decoration: line-through;
-                }
-                .crossword-clues li.correct.active {
-                  background: #dff082;
-                }
-                .crossword-clues li.correct label:before {
-                  content: "\f00c";
-                  display: inline-block;
-                  font: normal normal normal 14px/1 FontAwesome;
-                  font-size: inherit;
-                  text-rendering: auto;
-                  -webkit-font-smoothing: antialiased;
-                  -moz-osx-font-smoothing: grayscale;
-                  position: absolute;
-                  left: 0;
-                  top: 0.1em;
-                }
-                .crossword-clues a.hint {
-                  display: none;
-                }
-                .show-hints.crossword-clues a.hint {
-                  display: inline;
-                }
-                .clue-tooltip {
-                  position: absolute;
-                  z-index: 10;
-                  background: rgba(255, 255, 255, 0.0);
-                  padding: 4px 10px;
-                  margin-bottom: 10px;
-                  -webkit-transform: translateY(-100%);
-                          transform: translateY(-100%);
-                  max-width: 90vw;
-                }
-                .clue-tooltip .clue-tooltip-arrow {
-                  display: block;
-                  border: 8px solid transparent;
-                  border-top-color: rgba(128, 0, 0 0.9);
-                  border-bottom: none;
-                  position: absolute;
-                  top: 100%;
-                }
 
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="website">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Enrichment</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url("img/bg.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
 
+        .crossword {
+            margin: 1em auto;
+            position: relative;
+            font-family: sans-serif;
+        }
 
+        .crossword-clues {
+            font-size: 14px;
+        }
 
-        
-        
-        
-        
-        
-        
-        </style>
+        .crossword-buttons {
+            clear: both;
+            text-align: center;
+            padding-top: 1em;
+        }
 
-    </head>
+        .crossword-buttons button {
+            margin: 0 0.5em;
+            min-width: 200px;
+        }
+
+        table.crossword-grid {
+            width: 100%;
+            max-width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .grid-row {
+            clear: left;
+        }
+
+        .grid-square {
+            position: relative;
+            background-clip: padding-box;
+        }
+
+        .grid-square:after {
+            content: '';
+            display: block;
+            margin-top: 100%;
+        }
+
+        .grid-square.active {
+            border: 2px solid white;
+        }
+
+        .grid-square.current-word {
+            background-color: #ffff99;
+        }
+
+        .grid-square.correct-across,
+        .grid-square.correct-down {
+            background-color: #dff0d8;
+        }
+
+        .grid-square.correct-across.current-word,
+        .grid-square.correct-down.current-word {
+            background-color: #dff082;
+        }
+
+        .grid-square .word-label {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            line-height: 1;
+            font-size: calc(10px + .25vw);
+            color: rgba(255, 255, 255, 0.0);
+            pointer-events: none;
+        }
+
+        .grid-square input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            font-size: calc(10px + .5vw);
+            font-weight: 600;
+            border: 0;
+            padding: 0;
+            text-transform: uppercase;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        .crossword-clues li {
+            position: relative;
+        }
+
+        .crossword-clues li label {
+            display: block;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .crossword-clues li.active {
+            background: #ffff99;
+        }
+
+        .crossword-clues li.correct {
+            background: transparent;
+            color: green;
+            text-decoration: line-through;
+        }
+
+        .crossword-clues li.correct.active {
+            background: #dff082;
+        }
+
+        .crossword-clues li.correct label:before {
+            content: "\f00c";
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: absolute;
+            left: 0;
+            top: 0.1em;
+        }
+
+        .crossword-clues a.hint {
+            display: none;
+        }
+
+        .show-hints.crossword-clues a.hint {
+            display: inline;
+        }
+
+        .clue-tooltip {
+            position: absolute;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.0);
+            padding: 4px 10px;
+            margin-bottom: 10px;
+            -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+            max-width: 90vw;
+        }
+
+        .clue-tooltip .clue-tooltip-arrow {
+            display: block;
+            border: 8px solid transparent;
+            border-top-color: rgba(128, 0, 0 0.9);
+            border-bottom: none;
+            position: absolute;
+            top: 100%;
+        }
+    </style>
+</head>
+
 <body>
-    
     <div class="container">
-        
-            <h1 class="page-header">Crossword</h1>
-            <p class="h4">Ready to play ?</p>
-            <p class="h5">Reveal the 
-                word by completing the crossword puzzle!</p>
-            <div class="crossword">
-            </div>
-
+        <h1 class="page-header"><span style="color: rgb(255, 255, 255);">Crossword</span></h1>
+        <p class="h4"><span style="color: rgb(255, 255, 255);">Ready to play ?</span></p>
+        <p class="h5"><span style="color: rgb(255, 255, 255);">Reveal the word by completing the crossword puzzle!</span></p>
+        <div class="crossword"><br></div>
     </div>
-     
-   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-   <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
         var words = [
             {number:1,direction:'down',row:4,column:1,clue:'A layer of gases surrounding a planet, moon, or star. ',answer:'atmosphere',hint:''},
             {number:2,direction:'across',row:6,column:1,clue:'The closest planet to the Sun in our solar system',answer:'mercury',hint:''},
@@ -191,14 +197,14 @@
             {number:8,direction:'across',row:4,column:1,clue:'The answer is atom',answer:'atom',hint:''},
             
         ];
-
+        
         // Set global variables
         var gridSize = [17,17];     // number of squares wide, number of squares tall
         var direction = 'across';   // set initial direction to 'across'
         var markCorrect = true;     // indicates ability for answers to be marked correct. will be set to false if "show answers" is clicked
         var successShown = false;   // indicates whether the success modal has been shown
         var $clueTooltip = $('<div class="clue-tooltip invisible"><div class="clue-tooltip-arrow"></div><div class="clue-tooltip-text"></div></div>').appendTo('.crossword');
-
+        
         // set up the base grid
         var $crosswordPuzzle = $('<div class="crossword-puzzle col-md-8 col-lg-9"></div>');
         var $table = $('<table class="crossword-grid"></table>');
@@ -212,7 +218,7 @@
             $table.appendTo($crosswordPuzzle);
             $crosswordPuzzle.appendTo('.crossword');
         }
-
+        
         // Add the fields to the grid
         for (i=0;i<words.length;i++) {
             var row = words[i].row;
@@ -255,7 +261,7 @@
                 }
             }
         }
-
+        
         // Add the clues to the page
         var $crosswordClues = $('<div class="crossword-clues col-md-4 col-lg-3"><div class="row"></div></div>');       
         var $downClues = $('<div class="down-clues col-sm-6 col-md-12"><p><strong>Down</strong></p><ol></ol></div>');
@@ -275,16 +281,16 @@
                 $clue.appendTo($downClues.find('ol'));
             }
         }
-     
+             
         $downClues.appendTo($crosswordClues.find('.row'));   $acrossClues.appendTo($crosswordClues.find('.row'));
         $crosswordClues.appendTo('.crossword');
-
+        
         // Add the hints, reset, and show answers buttons
-       // var $puzzleButtons = $('<div class="crossword-buttons"></div>');
+               // var $puzzleButtons = $('<div class="crossword-buttons"></div>');
         //   var $hintsButton = $('<button class="btn btn-default">Show Hints</button>');
         var $puzzleButtons = $('');
         var $hintsButton = $("");
-    
+            
             $hintsButton.on('click',function(e){
                /* e.preventDefault();
                 $('.crossword-clues').toggleClass('show-hints');
@@ -308,13 +314,13 @@
                 });
                 markCorrect = false;*/
             });
-       // $solveButton.appendTo($puzzleButtons); 
-     //   $puzzleButtons.appendTo('.crossword');
-
+               // $solveButton.appendTo($puzzleButtons); 
+             //   $puzzleButtons.appendTo('.crossword');
+        
         // Add the success modal
         var $modal = $('<div class="modal fade" id="success-modal" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Congratulations!</h4></div><div class="modal-body"><p>You have finished the puzzle.The hidden word: Fireball </p></div></div></div></div>');
         $modal.appendTo('body');
-
+        
         // When a square is focused, highlight the other squares in that word and the clue, and show the tooltip
         $('input.letter').on('focus',function(){
             var $current = $(this);
@@ -326,14 +332,14 @@
             $('.crossword-clues li[data-direction='+direction+'][data-clue='+$(this).data(direction)+']').addClass('active');
             $clueTooltip.css({'left':tooltipPosition($current).left+'px','top':tooltipPosition($current).top-10+'px'}).removeClass('invisible').find('.clue-tooltip-arrow').css('left',tooltipPosition($current).offset+'px');
         })
-
+        
         // When a square is blurred, remove highlight from squares and clue
         $('input.letter').on('blur',function(){
             $('.grid-square').removeClass('current-word');
             $('.crossword-clues li').removeClass('active');
             $clueTooltip.addClass('invisible');
         })
-
+        
         // handle directional and letter keys in letter inputs
         $('input.letter').on('keyup',function(e){
             var $current = $(this);
@@ -364,7 +370,7 @@
                 checkWord($current);
             };
         })
-
+        
         // Tab and Shift/Tab move to next and previous words
         $('input.letter').on('keydown',function(e){
             var $current = $(this);
@@ -395,7 +401,7 @@
                 checkWord($current);
             };
         })
-
+        
         // Check if all letters in selected word are correct
         function checkWord($current) {
             var correct;
@@ -437,7 +443,7 @@
                 successShown = true;
             }
         }
-
+        
         // Return the input of the first letter of the next word in the clues list
         function getNextWord($current) {
             var length = $('.crossword-clues li').length;
@@ -451,7 +457,7 @@
             direction = $nextWord.data('direction');
             return $('[data-'+$nextWord.data('direction')+'='+$nextWord.data('clue')+']').eq(0);
         }
-
+        
         // Return the input of the first letter of the previous word in the clues list
         function getPrevWord($current) {
             var length = $('.crossword-clues li').length;
@@ -465,7 +471,7 @@
             direction = $prevWord.data('direction');
             return $('[data-'+$prevWord.data('direction')+'='+$prevWord.data('clue')+']').eq(0);
         }
-
+        
         // If there is a letter square before or after the current letter in the current direction, keep global direction the same, otherwise switch global direction
         function getDirection($current) {
             if (getPrevLetter($current) || getNextLetter($current)) {
@@ -474,7 +480,7 @@
                 direction = (direction == 'across') ? 'down' : 'across';
             }
         }
-
+        
         // Return the input of the previous letter in the current word if it exists, otherwise return false
         function getPrevLetter($current) {
             var index = $('[data-'+direction+'='+$current.data(direction)+']').index($current);
@@ -484,7 +490,7 @@
                return false;
             }
         }
-
+        
         // Return the input of the next letter in the current word if it exists, otherwise return false
         function getNextLetter($current) {
             var length = $('[data-'+direction+'='+$current.data(direction)+']').length;
@@ -495,7 +501,7 @@
                return false;
             }
         }
-
+        
         // Return the top, left, and offset positions for tooltip placement
         function tooltipPosition($current) {
             var left = $('[data-'+direction+'='+$current.data(direction)+']').eq(0).offset().left - $('.crossword').offset().left;
@@ -507,14 +513,12 @@
             left = left - offset;
             return {'left':left,'top':top,'offset':offset};
         }
-
-
-
-
-
-</script>
-
+        
+        
+        
+        
+        
+    </script>
 </body>
 
 </html>
-
