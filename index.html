@@ -64,7 +64,7 @@
         }
 
         .grid-square.active {
-            border: 2px solid white;
+            border: 2px solid black;
         }
 
         .grid-square.current-word {
@@ -88,7 +88,7 @@
             left: 0;
             line-height: 1;
             font-size: calc(10px + .25vw);
-            color: rgba(255, 255, 255, 0.0);
+            color: rgba(0, 0, 0, 0.5);
             pointer-events: none;
         }
 
@@ -157,7 +157,7 @@
         .clue-tooltip {
             position: absolute;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.0);
+            background: rgba(255, 196, 35, 0.9);
             padding: 4px 10px;
             margin-bottom: 10px;
             -webkit-transform: translateY(-100%);
@@ -168,7 +168,7 @@
         .clue-tooltip .clue-tooltip-arrow {
             display: block;
             border: 8px solid transparent;
-            border-top-color: rgba(128, 0, 0 0.9);
+            border-top-color: rgba(255, 196, 35, 0.9);
             border-bottom: none;
             position: absolute;
             top: 100%;
@@ -179,7 +179,7 @@
 <body>
     <div class="container">
         <h1 class="page-header"><span style="color: rgb(255, 255, 255);">Crossword</span></h1>
-        <p class="h4"><span style="color: rgb(255, 255, 255);">Ready to play ?</span></p>
+        <p class="h4"><span style="color: rgb(255, 255, 255);">Ready to play?</span></p>
         <p class="h5"><span style="color: rgb(255, 255, 255);">Reveal the word by completing the crossword puzzle!</span></p>
         <div class="crossword"><br></div>
     </div>
